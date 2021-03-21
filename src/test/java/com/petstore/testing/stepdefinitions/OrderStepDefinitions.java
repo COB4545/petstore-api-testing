@@ -39,12 +39,12 @@ public class OrderStepDefinitions {
         recordNewOrder.withDetails(order);
     }
 
-    @Then("the order should have message")
-    public void the_order_should_have_message() {
+    @Then("the order should have id")
+    public void the_order_should_have_id() {
         restAssuredThat(response -> response.statusCode(200));
         Map<String, String> actualResponse = orderResponse.returned();
 
-        assertThat(actualResponse.getOrDefault("message","")).isNotEmpty();
+        assertThat(actualResponse.getOrDefault("id","")).isNotEmpty();
     }
 
 }
