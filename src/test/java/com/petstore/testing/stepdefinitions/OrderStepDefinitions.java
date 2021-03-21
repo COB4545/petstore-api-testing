@@ -2,6 +2,7 @@ package com.petstore.testing.stepdefinitions;
 
 import com.petstore.testing.templates.FieldValues;
 import com.petstore.testing.templates.MergeFrom;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -39,11 +40,16 @@ public class OrderStepDefinitions {
         recordNewOrder.withDetails(order);
     }
 
-    @Then("the order should have id")
-    public void the_order_should_have_id() {
+    @Then("the pet order should have id")
+    public void the_pet_order_should_have_id() {
         Map<String, String> actualResponse = orderResponse.returned();
 
         assertThat(actualResponse.getOrDefault("id","")).isNotEmpty();
     }
 
+    @Then("the pet order should  fail")
+    public void the_pet_order_should_fail() {
+        Map<String, String> actualResponse = orderResponse.returned();
+        assertThat(actualResponse.getOrDefault("type","")).isEqualTo("unknown");
+    }
 }
