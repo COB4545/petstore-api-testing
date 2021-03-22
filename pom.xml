@@ -22,6 +22,7 @@
         <webdriver.base.url></webdriver.base.url>
     </properties>
 
+
     <dependencies>
         <dependency>
             <groupId>ch.qos.logback</groupId>

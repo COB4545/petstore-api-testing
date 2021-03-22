@@ -10,7 +10,7 @@ public class RetrieveOrder {
 
     @Step("RetrieveOrder")
 
-    public void withorderid(String orderId) {
+    public void withOrderId(String orderId) {
 
         SerenityRest.given()
                 .relaxedHTTPSValidation()

@@ -21,4 +21,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn -B clean verify --file pom.xml
+      run: mvn -B clean serenity:aggregate --file pom.xml
+      artifacts:
+        paths:
+          - target/site/
