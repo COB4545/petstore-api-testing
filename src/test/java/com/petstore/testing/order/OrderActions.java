@@ -15,7 +15,7 @@ public class OrderActions {
                 .header("Content-Type", "application/json")
                 .body(order)
                 .when()
-                .post(WebServiceEndPoints.ORDER.getUrl());
+                .post(WebServiceEndPoints.ORDER.getUrl() + '/'+ "order");
     }
 
     @Step("RetrieveOrder")
@@ -26,6 +26,29 @@ public class OrderActions {
                 .contentType("application/json")
                 .header("Content-Type", "application/json")
                 .when()
-                .get(WebServiceEndPoints.ORDER.getUrl()+'/'+orderId);
+                .get(WebServiceEndPoints.ORDER.getUrl()+'/'+ "order" + '/'+ orderId);
     }
+
+    @Step("DeleteOrder")
+    public void withDeleteId(String orderId) {
+
+        SerenityRest.given()
+                .relaxedHTTPSValidation()
+                .contentType("application/json")
+                .header("Content-Type", "application/json")
+                .when()
+                .delete(WebServiceEndPoints.ORDER.getUrl()+'/'+ "order" + '/'+ orderId);
+    }
+
+    @Step("GetInventories")
+    public void withInventories(String orderId) {
+
+        SerenityRest.given()
+                .relaxedHTTPSValidation()
+                .contentType("application/json")
+                .header("Content-Type", "application/json")
+                .when()
+                .get(WebServiceEndPoints.ORDER.getUrl() + '/'+ "inventory");
+    }
+
 }

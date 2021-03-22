@@ -162,9 +162,6 @@
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
                 <version>${serenity.maven.version}</version>
-                <configuration>
-                  <tags>${tags}</tags>
-                </configuration>
                 <executions>
                     <execution>
                         <id>serenity-reports</id>

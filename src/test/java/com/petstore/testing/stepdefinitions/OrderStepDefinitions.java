@@ -59,7 +59,7 @@ public class OrderStepDefinitions {
     }
 
     @And("the order details returned")
-    public void theOrderDetailsReturned() {
+    public void the_order_details_returned() {
         Map<String, String> actualResponse = orderResponse.returned();
 
         assertThat(actualResponse.getOrDefault("id","")).isNotEmpty();
@@ -71,5 +71,59 @@ public class OrderStepDefinitions {
         Map<String, String> actualResponse = orderResponse.returned();
         assertThat(actualResponse.getOrDefault("id","")).isEmpty();
 
+    }
+
+    @And("the order details should have orderid")
+    public void the_order_details_should_have_orderid() {
+        Map<String, String> actualResponse = orderResponse.returned();
+        assertThat(actualResponse.getOrDefault("id","")).isNotEmpty();
+    }
+
+    @And("the order details returned with error message")
+    public void the_order_details_returned_with_error_message() {
+        Map<String, String> actualResponse = orderResponse.returned();
+        assertThat(actualResponse.getOrDefault("message","")).isEqualTo("Order not found");
+    }
+
+    @And("the order details returned with unknown error message")
+    public void the_order_details_returned_with_unknown_error_message() {
+        Map<String, String> actualResponse = orderResponse.returned();
+        assertThat(actualResponse.getOrDefault("type","")).isEqualTo("unknown");
+    }
+
+    @Given("delete the purchase order for order {string}")
+    public void delete_the_purchase_order_for_order(String string) {
+        orderActions.withDeleteId(string);
+
+    }
+
+    @And("purchase order deleted with success message")
+    public void purchase_order_deleted_with_success_message() {
+        Map<String, String> actualResponse = orderResponse.returned();
+        assertThat(actualResponse.getOrDefault("message","")).isEqualTo("1");
+    }
+
+    @And("the deletion of purchase order should throw error message")
+    public void the_deletion_of_purchase_order_should_throw_error_message() {
+        Map<String, String> actualResponse = orderResponse.returned();
+        assertThat(actualResponse.getOrDefault("message","")).isEqualTo("Order Not Found");
+    }
+
+    @And("the deletion of wrong purchase order should throw error message")
+    public void the_deletion_of_wrong_purchase_order_should_throw_error_message() {
+        Map<String, String> actualResponse = orderResponse.returned();
+        assertThat(actualResponse.getOrDefault("type","")).isEqualTo("unknown");
+    }
+
+    @Given("the pet inventories in store")
+    public void the_pet_inventories_in_store(String string) {
+        orderActions.withInventories(string);
+
+    }
+
+    @And("inventories details of petstore is returned")
+    public void inventories_details_of_petstore_is_returned() {
+        Map<String, String> actualResponse = orderResponse.returned();
+        assertThat(actualResponse.getOrDefault("412","")).isEqualTo("1");
     }
 }

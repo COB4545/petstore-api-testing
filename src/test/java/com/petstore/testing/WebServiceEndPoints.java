@@ -1,7 +1,7 @@
 package com.petstore.testing;
 
 public enum WebServiceEndPoints {
-    ORDER("https://petstore.swagger.io/v2/store/order");
+    ORDER("https://petstore.swagger.io/v2/store/");
 
     private final String url;
 
