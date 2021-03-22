@@ -1,3 +1,4 @@
+@test
 Feature: Place an order for a pet
           with help of store order API
 
