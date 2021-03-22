@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CommonStepDefinitions {
     @Then("status of response is {int}")
-    public void status_of_response_is(Integer int1) {
-        restAssuredThat(response -> response.statusCode(int1));
+    public void status_of_response_is(Integer responseCode) {
+        restAssuredThat(response -> response.statusCode(responseCode));
     }
 }
