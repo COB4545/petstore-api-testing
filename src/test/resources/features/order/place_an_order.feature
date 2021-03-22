@@ -19,6 +19,12 @@ Feature: Place an order for a pet
     Then status of response is 500
     And the pet order should  fail
 
+  Scenario: Order details should retrieved successfully
 
-
+    Given order details for order "1"
+    When I requested the order data
+    Then status of response is 200
+    And the order details returned
+    ||
+    
 
