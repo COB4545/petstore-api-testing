@@ -34,6 +34,6 @@ Feature: Place an order for a pet
     And the order details returned is empty
     Examples:
       | orderId |
-      | "2"    |
+      | "aaa"    |
     
 
