@@ -1,5 +1,5 @@
 @test
-Feature: Functional Verification Of petstore ORDER REST APIs
+Feature: Functional verification of petstore ORDER REST APIs
 
   Scenario: Place a purchase order for a pet
     Given the following order:

@@ -50,20 +50,20 @@ public class PetStepDefinitions {
         assertThat(actualResponse.getOrDefault("code","")).isNotBlank();
     }
 
-    @Given("the following empty pet details:")
-    public void the_following_empty_pet_details()  {
-        petActions.withPetDetails(pet);
-    }
-
     @When("I update the pet data")
     public void i_update_the_pet_data() {
-        petActions.withPetDetails(pet);
+        petActions.withUpdatePetDetails(pet);
     }
 
     @Then("the pet id should be updated as given id value")
     public void the_pet_id_should_be_updated_as_given_id_value() {
         Map<String, String> actualResponse = petResponse.returned();
         assertThat(actualResponse.getOrDefault("id","")).isEqualTo("10.0");
+    }
+
+    @Then("the pet data update responds an error")
+    public void the_pet_data_update_responds_an_error() {
+
     }
 
 }

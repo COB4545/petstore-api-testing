@@ -1,5 +1,5 @@
 @test
-Feature: Functional Verification Of petstore Pet related REST APIs
+Feature: Functional verification of petstore PET REST APIs
 
   Scenario: Add a pet to the petstore
     Given the following pet details:
@@ -27,3 +27,12 @@ Feature: Functional Verification Of petstore Pet related REST APIs
     Then status of response is 200
     And the response content is json
     And the pet id should be updated as given id value
+
+  Scenario: Pet data update should fail
+    Given the following pet details:
+      | id |
+      | - |
+    When  I update the pet data
+    Then status of response is 500
+    And the response content is json
+    And the pet data update responds an error
