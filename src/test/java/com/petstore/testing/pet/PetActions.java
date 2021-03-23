@@ -1,21 +1,22 @@
-package com.petstore.testing.order;
+package com.petstore.testing.pet;
 
 import com.petstore.testing.WebServiceEndPoints;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
-public class OrderActions {
+public class PetActions {
 
     @Step("Record a new order")
-    public void withDetails(String order) {
+    public void petDetails(String pet) {
+
 
         SerenityRest.given()
                 .relaxedHTTPSValidation()
                 .contentType("application/json")
                 .header("Content-Type", "application/json")
-                .body(order)
+                .body(pet)
                 .when()
-                .post(WebServiceEndPoints.ORDER.getUrl() + "/store"+"/order");
+                .post(WebServiceEndPoints.ORDER.getUrl() + "/com/petstore/testing/pet");
     }
 
     @Step("RetrieveOrder")
@@ -26,7 +27,7 @@ public class OrderActions {
                 .contentType("application/json")
                 .header("Content-Type", "application/json")
                 .when()
-                .get(WebServiceEndPoints.ORDER.getUrl()+ "/store"+"/order" + '/'+ orderId);
+                .get(WebServiceEndPoints.ORDER.getUrl()+ "/order" + '/'+ orderId);
     }
 
     @Step("DeleteOrder")
@@ -37,7 +38,7 @@ public class OrderActions {
                 .contentType("application/json")
                 .header("Content-Type", "application/json")
                 .when()
-                .delete(WebServiceEndPoints.ORDER.getUrl()+ "/store"+"/order" + '/'+ orderId);
+                .delete(WebServiceEndPoints.ORDER.getUrl()+ "/order" + '/'+ orderId);
     }
 
     @Step("GetInventories")
@@ -48,7 +49,7 @@ public class OrderActions {
                 .contentType("application/json")
                 .header("Content-Type", "application/json")
                 .when()
-                .get(WebServiceEndPoints.ORDER.getUrl() + "/store" + "/inventory");
+                .get(WebServiceEndPoints.ORDER.getUrl() +  "/inventory");
     }
 
 }
