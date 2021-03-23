@@ -14,7 +14,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PetStepDefinations {
+public class PetStepDefinitions {
 
     @Steps
     PetActions petActions ;
@@ -27,16 +27,14 @@ public class PetStepDefinations {
     @Given("the following pet details:")
     public void the_following_pet_details(List<Map<String, String>> petDetails) throws IOException {
 
-        pet = MergeFrom.template("templates/order.json")
-                .withDefaultValuesFrom(FieldValues.in("templates/standard-order.properties"))
+        pet = MergeFrom.template("templates/pet.json")
+                .withDefaultValuesFrom(FieldValues.in("templates/standard-pet.properties"))
                 .withFieldsFrom(petDetails.get(0));
     }
 
     @When("I add the pet")
     public void i_add_the_pet() {
-        petActions.petDetails(pet);
+        petActions.withPetDetails(pet);
     }
-
-
 
 }

@@ -6,8 +6,8 @@ Feature: Functional Verification Of petstore Pet related REST APIs
     | id |
     | 2  |
     When  I add the pet
-#    Then status of response is 200
-#    And the response content is json
-#    And the pet order should have id
+    Then status of response is 200
+    And the response content is json
+#    And the pet should be added
 
 

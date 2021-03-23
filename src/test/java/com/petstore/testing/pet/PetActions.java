@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.Step;
 public class PetActions {
 
     @Step("Record a new order")
-    public void petDetails(String pet) {
+    public void withPetDetails(String pet) {
 
 
         SerenityRest.given()
@@ -16,7 +16,7 @@ public class PetActions {
                 .header("Content-Type", "application/json")
                 .body(pet)
                 .when()
-                .post(WebServiceEndPoints.ORDER.getUrl() + "/com/petstore/testing/pet");
+                .post(WebServiceEndPoints.ORDER.getUrl() + "/pet");
     }
 
     @Step("RetrieveOrder")

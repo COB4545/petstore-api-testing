@@ -1,17 +1,15 @@
 {
   "id": "${id}",
   "category": {
-    "id": "${id}",
-    "name": "${name}"
+    "id": "${id1}",
+    "name": "${name1}"
   },
-  "name": "${name}",
-  "photoUrls": [
-    "${photoUrls}"
-  ],
+  "name": "${name2}",
+"photoUrls": ["${photoUrls}"],
   "tags": [
     {
-      "id": "${id}",
-      "name": "${name}"
+      "id": "${id2}",
+      "name": "${name3}"
     }
   ],
   "status": "${status}"
