@@ -100,7 +100,7 @@ public class OrderStepDefinitions {
     @And("purchase order deleted with success message")
     public void purchase_order_deleted_with_success_message() {
         Map<String, String> actualResponse = orderResponse.returned();
-        assertThat(actualResponse.getOrDefault("message","")).isEqualTo("1");
+        assertThat(actualResponse.getOrDefault("code","")).isNotBlank();
     }
 
     @And("the deletion of purchase order should throw error message")
@@ -116,14 +116,14 @@ public class OrderStepDefinitions {
     }
 
     @Given("the pet inventories in store")
-    public void the_pet_inventories_in_store(String string) {
-        orderActions.withInventories(string);
+    public void the_pet_inventories_in_store() {
+        orderActions.withInventories("");
 
     }
 
     @And("inventories details of petstore is returned")
     public void inventories_details_of_petstore_is_returned() {
         Map<String, String> actualResponse = orderResponse.returned();
-        assertThat(actualResponse.getOrDefault("412","")).isEqualTo("1");
+        assertThat(actualResponse.getOrDefault("available","")).isNotBlank();
     }
 }
