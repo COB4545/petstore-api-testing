@@ -40,14 +40,14 @@ public class OrderStepDefinitions {
         orderActions.withDetails(order);
     }
 
-    @Then("the com.petstore.testing.pet order should have id")
+    @Then("the pet order should have id")
     public void the_pet_order_should_have_id() {
         Map<String, String> actualResponse = orderResponse.returned();
 
         assertThat(actualResponse.getOrDefault("id","")).isNotEmpty();
     }
 
-    @Then("the com.petstore.testing.pet order should  fail")
+    @Then("the pet order should  fail")
     public void the_pet_order_should_fail() {
         Map<String, String> actualResponse = orderResponse.returned();
         assertThat(actualResponse.getOrDefault("type","")).isEqualTo("unknown");
@@ -61,7 +61,6 @@ public class OrderStepDefinitions {
     @And("the order details returned")
     public void the_order_details_returned() {
         Map<String, String> actualResponse = orderResponse.returned();
-
         assertThat(actualResponse.getOrDefault("id","")).isNotEmpty();
 
     }
@@ -115,7 +114,7 @@ public class OrderStepDefinitions {
         assertThat(actualResponse.getOrDefault("type","")).isEqualTo("unknown");
     }
 
-    @Given("the com.petstore.testing.pet inventories in store")
+    @Given("the pet inventories in store")
     public void the_pet_inventories_in_store() {
         orderActions.withInventories("");
 

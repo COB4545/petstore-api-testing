@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Step;
 
 public class PetActions {
 
-    @Step("Record a new order")
+    @Step("Record a new pet")
     public void withPetDetails(String pet) {
 
 
@@ -19,37 +19,15 @@ public class PetActions {
                 .post(WebServiceEndPoints.ORDER.getUrl() + "/pet");
     }
 
-    @Step("RetrieveOrder")
-    public void withOrderId(String orderId) {
+    @Step("Update pet details")
+    public void withUpdatePetDetails(String orderId) {
 
         SerenityRest.given()
                 .relaxedHTTPSValidation()
                 .contentType("application/json")
                 .header("Content-Type", "application/json")
                 .when()
-                .get(WebServiceEndPoints.ORDER.getUrl()+ "/order" + '/'+ orderId);
-    }
-
-    @Step("DeleteOrder")
-    public void withDeleteId(String orderId) {
-
-        SerenityRest.given()
-                .relaxedHTTPSValidation()
-                .contentType("application/json")
-                .header("Content-Type", "application/json")
-                .when()
-                .delete(WebServiceEndPoints.ORDER.getUrl()+ "/order" + '/'+ orderId);
-    }
-
-    @Step("GetInventories")
-    public void withInventories(String orderId) {
-
-        SerenityRest.given()
-                .relaxedHTTPSValidation()
-                .contentType("application/json")
-                .header("Content-Type", "application/json")
-                .when()
-                .get(WebServiceEndPoints.ORDER.getUrl() +  "/inventory");
+                .put(WebServiceEndPoints.ORDER.getUrl()+ "/pet");
     }
 
 }
