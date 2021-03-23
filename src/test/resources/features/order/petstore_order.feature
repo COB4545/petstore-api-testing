@@ -32,7 +32,7 @@ Feature: Functional Verification Of petstore ORDER REST APIs
     And the order details returned with error message
     Examples:
       | orderId |
-      | "-1000"
+      | "-1000" |
 
   Scenario Outline: Wrong purchase order details
     Given order details for order <orderId>
