@@ -18,27 +18,9 @@ $ mvn clean verify
 
  ```
 
-# Test Reports Path 'target/site/serenity/index.html'
-     
-   The report contains 4 tabs ( "Overall Test Results" , "Requirements", "Capabilities" , "Features" )
-    Overall Test Results : 
-      1) Dispalys execution result in Pie chart
-      2) Contains Execution Time and displays Fastest, slowest & Avg time of test
-      3) Functional coverage view
-    Note: after clicking on Feature it Navigates to Feature tab.
-    
-    Requirements : Displays all the Features are in project with higherirchy
-    
-    Capabilities : It displays All the capabilities like Fetaure folders
-    
-    Features: 
-      1) displays All the features in project
-      2) By clicking on each feature can browse all the Scenarios and corresponding steps
-      3) Can verify input and outout of each steps by clicking on (+) symbol
-
 # This Project is PetStore REST API automation :
 
-  * Base url placed in this project as : https://petstore.swagger.io/v2/
+  * Base url placed in this project is : https://petstore.swagger.io/v2/
 
   * In this mainly STORE&PET resources used to cover all the CRUD methods
      
@@ -50,4 +32,21 @@ $ mvn clean verify
   * GET : Basically it does Retrieve from source
   * UPDATE: Basically it does Update or modify on any existing items in Source
   * DELETE : Basically it Deletes a record or particular item in Source
+
+# Test Reports Path 'target/site/serenity/index.html'
+
+ * The report contains 4 tabs ( "Overall Test Results" , "Requirements", "Capabilities" , "Features" )
+    * Overall Test Results :
+        1) Displays execution result in Pie chart
+        2) Contains Execution Time and displays Fastest, slowest & Avg time of test
+        3) Functional coverage view
+    Note: after clicking on Feature it Navigates to Feature tab.
+
+    * Requirements : Displays all the Features are in project with hierarchy
     
+    * Capabilities : It displays All the capabilities like feature folders
+    
+    * Features: 
+        1) displays All the features in project
+        2) By clicking on each feature can browse all the Scenarios and corresponding steps
+        3) Can verify input and output of each step by clicking on (+) symbol
