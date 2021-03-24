@@ -16,6 +16,8 @@ $ cd petstore-api-testing
 # Run Test Scenarios
 $ mvn clean verify
 
+ ```
+
 # Test Reports Path 'target/site/serenity/index.html'
      
    The report contains 4 tabs ( "Overall Test Results" , "Requirements", "Capabilities" , "Features" )
@@ -49,4 +51,3 @@ $ mvn clean verify
   * UPDATE: Basically it does Update or modify on any existing items in Source
   * DELETE : Basically it Deletes a record or particular item in Source
     
- ```
