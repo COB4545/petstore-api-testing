@@ -20,12 +20,13 @@ public class PetActions {
     }
 
     @Step("Update pet details")
-    public void withUpdatePetDetails(String orderId) {
+    public void withUpdatePetDetails(String pet) {
 
         SerenityRest.given()
                 .relaxedHTTPSValidation()
                 .contentType("application/json")
                 .header("Content-Type", "application/json")
+                .body(pet)
                 .when()
                 .put(WebServiceEndPoints.ORDER.getUrl()+ "/pet");
     }

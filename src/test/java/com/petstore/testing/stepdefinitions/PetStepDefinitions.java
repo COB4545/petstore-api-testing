@@ -55,14 +55,31 @@ public class PetStepDefinitions {
         petActions.withUpdatePetDetails(pet);
     }
 
+    @Given("the following new details for existing pet:")
+    public void the_following_new_details_for_existing_pet(List<Map<String, String>> petDetails) throws IOException {
+        pet = MergeFrom.template("templates/pet.json")
+                .withDefaultValuesFrom(FieldValues.in("templates/standard-pet.properties"))
+                .withFieldsFrom(petDetails.get(0));
+
+    }
+
     @Then("the pet id should be updated as given id value")
     public void the_pet_id_should_be_updated_as_given_id_value() {
         Map<String, String> actualResponse = petResponse.returned();
         assertThat(actualResponse.getOrDefault("id","")).isEqualTo("10.0");
     }
 
+    @Given("the wrong details for to update pet details:")
+    public void the_wrong_details_for_to_update_pet_details(List<Map<String, String>> petDetails) throws IOException {
+        pet = MergeFrom.template("templates/pet.json")
+                .withDefaultValuesFrom(FieldValues.in("templates/standard-pet.properties"))
+                .withFieldsFrom(petDetails.get(0));
+    }
+
     @Then("the pet data update responds an error")
     public void the_pet_data_update_responds_an_error() {
+        Map<String, String> actualResponse = petResponse.returned();
+        assertThat(actualResponse.getOrDefault("message","")).isNotBlank();
 
     }
 

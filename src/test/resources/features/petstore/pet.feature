@@ -20,7 +20,7 @@ Feature: Functional verification of petstore PET REST APIs
     And the pet request should be failed
 
   Scenario: Update existing pet info with new data
-    Given the following pet details:
+    Given the following new details for existing pet:
       | id |
       | 10  |
     When  I update the pet data
@@ -29,9 +29,9 @@ Feature: Functional verification of petstore PET REST APIs
     And the pet id should be updated as given id value
 
   Scenario: Pet data update should fail
-    Given the following pet details:
+    Given the wrong details for to update pet details:
       | id |
-      | - |
+      | --  |
     When  I update the pet data
     Then status of response is 500
     And the response content is json
