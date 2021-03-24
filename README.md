@@ -32,5 +32,5 @@ $ The report contains 4 tabs ( "Overall Test Results" , "Requirements", "Capabil
       1) displays All the features in project
       2) By clicking on each feature can browse all the Scenarios and corresponding steps
       3) Can verify input and outout of each steps by clicking on (+) symbol
-       
+    
  ```
